@@ -14,13 +14,14 @@ export default Controller.extend({
         },
         async saveBand(event) {
             event.preventDefault();
+            console.log(this.store)
             let newBand = this.store.createRecord('band', { name: this.newBandName });
             await newBand.save();
             this.setProperties({
                 newBandName: '',
                 isAddingBand: false
             });
-            this.transitionToRoute('bands.band.songs', newBand.id);
+            this.transitionToRoute('bands.band.controls.songs', newBand.id);
         }
     }
 });

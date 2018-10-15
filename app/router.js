@@ -9,10 +9,15 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('bands', function() {
     this.route('band', { path: ':id'}, function() {
-      this.route('songs');
+      this.route('controls', { path: '/' }, function() {
+        this.route('songs');
+      })
       this.route('details');
     });
   });
+  this.route('sign-up');
+  this.route('login');
+  this.route('logout');
 });
 
 export default Router;
